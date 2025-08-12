@@ -34,3 +34,6 @@ coverage/
 
 # TypeScript
 *.tsbuildinfo
+
+# Исключаем только исходники, но включаем зависимости
+!node_modules/axios

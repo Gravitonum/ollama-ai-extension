@@ -3,9 +3,9 @@
   "displayName": "Ollama AI Extension",
   "description": "AI кодирование с поддержкой Ollama LLM",
   "version": "0.0.1",
-  "publisher": "Sergey Rodionov",
+  "publisher": "sergeyR",
   "engines": {
-    "vscode": "^1.74.0"
+    "vscode": "^1.85.0"
   },
   "categories": [
     "Other"
@@ -61,13 +61,13 @@
       "properties": {
         "ollama-ai.serverUrl": {
           "type": "string",
-          "default": "http://localhost:11434",
+          "default": "http://192.168.0.165:11434",
           "description": "URL сервера Ollama"
         },
         "ollama-ai.modelName": {
           "type": "string",
-          "default": "codellama",
-          "description": "Название модели Ollama"
+          "default": "Qwen3-30B-A3B-GGUF_coder:latest",
+          "description": "QWEN3-CODER-30B"
         },
         "ollama-ai.apiToken": {
           "type": "string",
@@ -103,18 +103,17 @@
     "pretest": "npm run compile",
     "test": "node ./out/test/runTest.js"
   },
+  "dependencies": {
+    "axios": "^1.7.2"
+  },
   "devDependencies": {
     "@types/glob": "^8.1.0",
     "@types/mocha": "^10.0.1",
     "@types/node": "16.x",
-    "@types/vscode": "^1.74.0",
+    "@types/vscode": "^1.85.0",
     "@vscode/test-electron": "^2.3.0",
-    "@vscode/vsce": "^2.19.0",
-    "glob": "^8.1.0",
+    "glob": "^10.3.10",
     "mocha": "^10.2.0",
     "typescript": "^5.0.4"
-  },
-  "dependencies": {
-    "axios": "^1.4.0"
   }
 }

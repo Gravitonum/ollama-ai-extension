@@ -28,6 +28,6 @@
 5. Настройка горячих клавиш
 После установки добавьте горячие клавиши через File > Preferences > Keyboard Shortcuts:
 
-Ctrl+Alt+L - Открыть чат Ollama AI ollama-ai.openChat
-Ctrl+Alt+G - Сгенерировать код ollama-ai.generateCode
-Ctrl+Alt+R - Рефакторинг выделенного кода ollama-ai.refactorCode
+Ctrl+SHIFT+L - Открыть чат Ollama AI ollama-ai.openChat
+Ctrl+SHIFT+G - Сгенерировать код ollama-ai.generateCode
+Ctrl+SHIFT+R - Рефакторинг выделенного кода ollama-ai.refactorCode
