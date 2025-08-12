@@ -1,0 +1,120 @@
+{
+  "name": "ollama-ai-extension",
+  "displayName": "Ollama AI Extension",
+  "description": "AI кодирование с поддержкой Ollama LLM",
+  "version": "0.0.1",
+  "publisher": "Sergey Rodionov",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "ollama-ai.openChat",
+        "title": "Открыть чат с AI"
+      },
+      {
+        "command": "ollama-ai.refactorCode",
+        "title": "Рефакторинг выделенного кода"
+      },
+      {
+        "command": "ollama-ai.generateCode",
+        "title": "Генерация кода по описанию"
+      },
+      {
+        "command": "ollama-ai.explainGitChanges",
+        "title": "Объяснить изменения в Git"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "ollama-ai.refactorCode",
+          "when": "editorHasSelection"
+        },
+        {
+          "command": "ollama-ai.generateCode",
+          "when": "true"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "ollama-ai.openChat"
+        },
+        {
+          "command": "ollama-ai.refactorCode"
+        },
+        {
+          "command": "ollama-ai.generateCode"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Ollama AI",
+      "properties": {
+        "ollama-ai.serverUrl": {
+          "type": "string",
+          "default": "http://localhost:11434",
+          "description": "URL сервера Ollama"
+        },
+        "ollama-ai.modelName": {
+          "type": "string",
+          "default": "codellama",
+          "description": "Название модели Ollama"
+        },
+        "ollama-ai.apiToken": {
+          "type": "string",
+          "default": "",
+          "description": "Токен API (если требуется)"
+        }
+      }
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "ollama-ai",
+          "title": "Ollama AI",
+          "icon": "resources/icons/icon.png"
+        }
+      ]
+    },
+    "views": {
+      "ollama-ai": [
+        {
+          "id": "ollama-ai.chatView",
+          "name": "Чат с AI",
+          "type": "webview",
+          "icon": "resources/icons/icon.png"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "@types/vscode": "^1.74.0",
+    "@vscode/test-electron": "^2.3.0",
+    "@vscode/vsce": "^2.19.0",
+    "glob": "^8.1.0",
+    "mocha": "^10.2.0",
+    "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "axios": "^1.4.0"
+  }
+}
